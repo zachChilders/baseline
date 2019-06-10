@@ -31,13 +31,13 @@ if ($FailedTests -or $scriptAnalyzerErrors) {
     "--------------------------",
     "- Static Analysis Errors -",
     "--------------------------" `
-        | % { Write-Host $_ }
-    $scriptAnalyzerErrors | Out-String | % { Write-Host $_ }
-    $FailedTests | Format-Table | Out-String | % { Write-Host $_ }
+        | ForEach-Object { Write-Error $_ }
+    $scriptAnalyzerErrors | Out-String | ForEach-Object { Write-Error $_ }
+    $FailedTests | Format-Table | Out-String | ForEach-Object { Write-Error $_ }
     throw "Failed style enforcement tests"
 
 } else {
     # pass
-    Write-Host "Script style is valid"
+    Write-Information "Script style is valid"
 
 }
