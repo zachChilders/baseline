@@ -6,6 +6,7 @@ pool:
 
 variables:
     azureSubscriptionEndpoint: AZURESERVICECONNECTION
+    keyVaultName: AZUREKEYVAULTNAME
 
 steps:
 
@@ -26,6 +27,6 @@ steps:
     displayName: Get Secrets
     inputs:
         azureSubscription: $(azureSubscriptionEndpoint)
-        keyVaultName: KEYVAULTNAME
+        keyVaultName: $(keyVaultName)
         secretsFilter: '*'
 
