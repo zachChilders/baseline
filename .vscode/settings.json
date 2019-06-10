@@ -1,0 +1,13 @@
+{
+    "powershell.scriptAnalysis.settingsPath": "PSScriptAnalyzerSettings.psd1",
+    "files.autoGuessEncoding": true,
+    "[xml]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[powershell]": {
+        "editor.tabSize": 4
+    }
+}

@@ -1,0 +1,27 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+    azureSubscriptionEndpoint: AZURESERVICECONNECTION
+    azureContainerRegistry: ACR ENDPOINT
+
+steps:
+
+  # This task is used to inject all the secrets from a keyvault into your Pipeline, just like init.ps1 does.
+  - task: AzureKeyVault@1
+    displayName: Get Secrets
+    inputs:
+        azureSubscription: $(azureSubscriptionEndpoint)
+        keyVaultName: KEYVAULTNAME
+        secretsFilter: '*'
+
+  # This task logs you into your ACR, which allows you to push and pull images in further steps.
+  - task: Docker@1
+    displayName: Docker Login
+    inputs: 
+        command: login
+        azureContainerRegistry: $(azureContainerRegistry)
+        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
