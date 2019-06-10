@@ -5,8 +5,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-    azureSubscriptionEndpoint: AZURESERVICECONNECTION
-    keyVaultName: AZUREKEYVAULTNAME
+    azureSubscriptionEndpoint: w233
+    keyVaultName: mics-kv
 
 steps:
 
