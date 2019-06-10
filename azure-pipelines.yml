@@ -14,13 +14,13 @@ steps:
     displayName: Validate Powershell scripts
     inputs:
       targetType: filePath
-      filePath: /src/scripts/Assert-ValidStyle.ps1
+      filePath: ./src/scripts/Assert-ValidStyle.ps1
 
   - task: PowerShell@2
     displayName: Run Powershell Tests
     inputs:
       targetType: filePath
-      filePath: /src/scripts/Assert-UnitTests.ps1
+      filePath: ./src/scripts/Assert-UnitTests.ps1
 
   # This task is used to inject all the secrets from a keyvault into your Pipeline, just like init.ps1 does.
   - task: AzureKeyVault@1
